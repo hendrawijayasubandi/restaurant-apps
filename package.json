@@ -1,7 +1,6 @@
 {
   "name": "restaurant-apps",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
@@ -9,7 +8,7 @@
     "test": "karma start"
   },
   "keywords": [],
-  "author": "your_name <your.email@domain.com>",
+  "author": "hendra <f2339a328@dicoding.org>",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -17,7 +16,9 @@
     "babel-loader": "^8.1.0",
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^3.6.0",
-    "eslint": "^7.4.0",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "html-webpack-plugin": "^4.3.0",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^3.5.0",
@@ -36,5 +37,14 @@
   },
   "dependencies": {
     "regenerator-runtime": "^0.13.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hendrawijayasubandi/restaurant-apps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hendrawijayasubandi/restaurant-apps/issues"
+  },
+  "homepage": "https://github.com/hendrawijayasubandi/restaurant-apps#readme",
+  "description": ""
 }
