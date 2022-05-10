@@ -6,7 +6,10 @@ const NowRestaurant = {
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
+    const home = await TheRestaurantDbSource.NowRestaurant();
+    console.log(home);
+
+    // TODO: tampilkan movies di dalam DOM
   },
 };
 
