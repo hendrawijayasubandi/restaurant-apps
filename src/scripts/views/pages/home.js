@@ -1,5 +1,7 @@
 import TheRestaurantDbSource from '../../data/therestaurantdb-source';
-import { createRestaurantItemTemplate } from '../../../templates/template-owner';
+import {
+  createRestaurantItemTemplate,
+} from '../templates/template-owner';
 
 const nowHome = {
   async render() {
@@ -14,8 +16,8 @@ const nowHome = {
   },
 
   async afterRender() {
-    const restaurants = await TheRestaurantDbSource.nowPlayingRestaurants();
-    const restaurantsContainer = document.querySelector('#restaurants');
+    const restaurants = await TheRestaurantDbSource.nowHome();
+    const restaurantsContainer = document.querySelector('#restaurant');
     restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
     });
