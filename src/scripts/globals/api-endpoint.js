@@ -1,9 +1,8 @@
 import CONFIG from './config';
  
 const API_ENDPOINT = {
-  HOME: `${CONFIG.BASE_URL}restaurant/home?api_key=${CONFIG.KEY}&language=${CONFIG.DEFAULT_LANGUAGE}&page=1`,
-  FAVORITE: `${CONFIG.BASE_URL}restaurant/favorite?api_key=${CONFIG.KEY}&language=${CONFIG.DEFAULT_LANGUAGE}&page=1`,
-  DETAIL: (id) => `${CONFIG.BASE_URL}restaurant/${id}?api_key=${CONFIG.KEY}`,
+  HOME: `${CONFIG.BASE_URL}list`,
+  DETAIL: (id) =>`${CONFIG.BASE_URL}detail/${id}`,
 };
  
 export default API_ENDPOINT;
