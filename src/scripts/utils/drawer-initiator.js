@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const DrawerInitiator = {
   init({
     button,
@@ -7,7 +8,10 @@ const DrawerInitiator = {
     button.addEventListener('click', (event) => {
       this._toggleDrawer(event, drawer);
     });
-	@@ -10,14 +15,15 @@ const DrawerInitiator = {
+
+    content.addEventListener('click', (event) => {
+      this._closeDrawer(event, drawer);
+    });
   },
 
   _toggleDrawer(event, drawer) {
