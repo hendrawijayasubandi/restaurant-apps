@@ -12,13 +12,13 @@ module.exports = {
     rules: [{
       test: /\.css$/,
       use: [{
-          loader: 'style-loader',
-        },
-        {
-          loader: 'css-loader',
-        },
+        loader: 'style-loader',
+      },
+      {
+        loader: 'css-loader',
+      },
       ],
-    }, ],
+    }],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -29,7 +29,7 @@ module.exports = {
       patterns: [{
         from: path.resolve(__dirname, 'src/public/'),
         to: path.resolve(__dirname, 'dist/'),
-      }, ],
+      }],
     }),
   ],
 };
