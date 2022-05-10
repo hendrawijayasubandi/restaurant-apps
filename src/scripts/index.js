@@ -9,6 +9,10 @@ const app = new App({
   content: document.querySelector('#mainContent'),
 });
 
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+
 const menu = document.querySelector('#menu');
 const hero = document.querySelector('.hero');
 const main = document.querySelector('main');
