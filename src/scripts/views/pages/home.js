@@ -1,4 +1,4 @@
-import TheRestaurantDbSource from '../../data/theRestaurantdb-source';
+import TheRestaurantDbSource from '../../data/therestaurantdb-source';
 
 const NowRestaurant = {
   async render() {
