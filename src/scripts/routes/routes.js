@@ -1,4 +1,4 @@
-import NowRestaurant from '../views/pages/list-restaurant';
+import NowRestaurant from '../views/pages/home';
 import Detail from '../views/pages/detail';
 
 const routes = {
