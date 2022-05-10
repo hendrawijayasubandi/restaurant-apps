@@ -12,7 +12,7 @@ const nowHome = {
 
         </div>
       <div>
-      `
+      `;
   },
 
   async afterRender() {
