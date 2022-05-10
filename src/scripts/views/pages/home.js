@@ -1,6 +1,6 @@
 import TheRestaurantDbSource from '../../data/therestaurantdb-source';
 
-const NowRestaurant = {
+const nowHome = {
   async render() {
     return `
         <h2>Now Restaurant Page</h2>
@@ -8,11 +8,11 @@ const NowRestaurant = {
   },
 
   async afterRender() {
-    const home = await TheRestaurantDbSource.NowRestaurant();
-    console.log(home);
+    const restaurant = await TheRestaurantDbSource.nowHome();
+    console.log(restaurant);
 
     // TODO: tampilkan movies di dalam DOM
   },
 };
 
-export default NowRestaurant;
+export default nowHome;
