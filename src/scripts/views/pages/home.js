@@ -1,17 +1,24 @@
 import TheRestaurantDbSource from '../../data/therestaurantdb-source';
+import { createRestaurantItemTemplate } from '../../../templates/template-owner';
 
 const nowHome = {
   async render() {
     return `
-        <h2>Now Restaurant Page</h2>
-      `;
+      <div class="content">
+      <h2 class="content__heading">Now Restaurant Page</h2>
+        <div id="restaurant" class="restaurant">
+
+        </div>
+      <div>
+      `
   },
 
   async afterRender() {
-    const restaurant = await TheRestaurantDbSource.nowHome();
-    console.log(restaurant);
-
-    // TODO: tampilkan movies di dalam DOM
+    const restaurants = await TheRestaurantDbSource.nowPlayingRestaurants();
+    const restaurantsContainer = document.querySelector('#restaurants');
+    restaurants.forEach((restaurant) => {
+      restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+    });
   },
 };
 
