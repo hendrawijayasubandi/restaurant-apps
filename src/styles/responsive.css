@@ -60,7 +60,7 @@
   }
 
   .restaurant-item__content {
-    padding: 16px 32px 32px 32px;
+    padding: 20px 32px 32px 32px;
   }
 
   .restaurant-item__title {
@@ -74,7 +74,6 @@
 
 @media screen and (min-width: 700px) {
   .restaurant {
-    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
@@ -102,6 +101,8 @@
   .restaurant {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
   }
 }
 

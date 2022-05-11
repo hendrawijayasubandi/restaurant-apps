@@ -3,6 +3,8 @@
 
 * {
   box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 }
 
 body,
@@ -313,4 +315,23 @@ button {
 
 .skip-link:focus {
   top: 0;
+}
+
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating {
+  position: absolute;
+  padding: 8px;
+  bottom: 20px;
+  left: 0;
+  display: inline-block;
+  background-color: black;
+  color: white;
+}
+
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating .restaurant-item__header__rating__score {
+  margin-left: 10px;
+}
+
+.restaurant-item .restaurant-item__header .restaurant-item__header__poster {
+  width: 100%;
+  min-height: 280px;
 }
