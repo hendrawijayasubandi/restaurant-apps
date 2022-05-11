@@ -335,3 +335,8 @@ button {
   width: 100%;
   min-height: 280px;
 }
+
+.restaurant-item .restaurant-item__content h3 a {
+  color: #db0000;
+  text-decoration: none;
+}

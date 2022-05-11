@@ -111,3 +111,7 @@
     max-width: 1200px;
   }
 }
+
+.content .content__heading {
+  font-weight: normal;
+}
