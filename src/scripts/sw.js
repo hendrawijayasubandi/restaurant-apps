@@ -1,3 +1,5 @@
+import 'regenerator-runtime';
+
 self.addEventListener('install', (event) => {
   console.log('Installing Service Worker ...');
 
