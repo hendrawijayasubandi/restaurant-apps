@@ -220,62 +220,62 @@ main {
 }
 
 /*
- * post
+ * restaurant
  */
 
-.posts {
+.restaurant {
   margin: 32px auto auto;
   text-align: left;
 }
 
 /*
- * post item
+ * restaurant item
  */
 
-.post-item {
+.restaurant-item {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
   border-radius: 5px;
   overflow: hidden;
 }
 
-.post-item__content {
+.restaurant-item__content {
   padding: 16px;
 }
 
-.post-item__thumbnail {
+.restaurant-item__thumbnail {
   width: 100%;
   background-position: center;
 }
 
-.post-item__date {
+.restaurant-item__date {
   font-size: 10px;
   text-transform: uppercase;
   color: #999;
 }
 
-.post-item__date__author {
+.restaurant-item__date__author {
   color: red;
   text-decoration: none;
 }
 
-.post-item__title {
+.restaurant-item__title {
   font-weight: 505;
   font-size: 30px;
   margin-top: 16px;
   transition: 0.3s opacity;
 }
 
-.post-item__title:hover {
+.restaurant-item__title:hover {
   opacity: 0.5;
 }
 
-.post-item__title a {
+.restaurant-item__title a {
   text-decoration: none;
   color: inherit;
 }
 
-.post-item__description {
+.restaurant-item__description {
   margin-top: 16px;
   font-size: 15px;
   line-height: 1.5em;
