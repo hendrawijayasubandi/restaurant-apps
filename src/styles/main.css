@@ -228,13 +228,9 @@ main {
   */
 
 .restaurant {
-  margin: none;
-  width: 100%;
-  max-width: 800px;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px 16px;
-  align-items: center;
+  grid-row-gap: 1.5em;
+  padding-top: 1.5em;
 }
 
 .restaurant .restaurant__poster {
