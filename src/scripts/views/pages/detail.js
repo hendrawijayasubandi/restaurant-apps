@@ -22,12 +22,12 @@ const Detail = {
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      movie: {
+      restaurant: {
       id: restaurant.id,
-      title: restaurant.title,
-      overview: restaurant.overview,
-      backdrop_path: restaurant.backdrop_path,
-      vote_average: restaurant.vote_average,
+      title: restaurant.name,
+      overview: restaurant.description,
+      picture: restaurant.picturedId,
+      rating: restaurant.rating,
     },
   });
 },
