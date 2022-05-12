@@ -145,6 +145,7 @@ main {
 
 .content {
   padding: 32px;
+  align-items: center;
 }
 
 /*
@@ -222,58 +223,46 @@ main {
   border-bottom: 1px solid #eeeeee;
 }
 
+/*
+    restaurant
+  */
+
+.restaurant {
+  margin: none;
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px 16px;
+  align-items: center;
+}
+
+.restaurant .restaurant__poster {
+  width: 100%;
+  max-width: 400px;
+}
+
+.restaurant .restaurant__info h4 {
+  margin: 8px 0;
+}
 
 /*
- * restaurant item
- */
+    restaurant Item
+  */
 
-/* .restaurant-item {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.restaurant-item {
   width: 100%;
-  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
   overflow: hidden;
 }
 
-.restaurant-item__content {
-  padding: 16px;
+.restaurant-item__header {
+  position: relative;
 }
 
-.restaurant-item__thumbnail {
+.restaurant-item .restaurant-item__header .restaurant-item__header__poster {
   width: 100%;
-  background-position: center;
-}
-
-.restaurant-item__date {
-  font-size: 10px;
-  text-transform: uppercase;
-  color: #999;
-}
-
-.restaurant-item__date__author {
-  color: red;
-  text-decoration: none;
-}
-
-.restaurant-item__title {
-  font-weight: 505;
-  font-size: 30px;
-  margin-top: 16px;
-  transition: 0.3s opacity;
-}
-
-.restaurant-item__title:hover {
-  opacity: 0.5;
-}
-
-.restaurant-item__title a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.restaurant-item__description {
-  margin-top: 16px;
-  font-size: 15px;
-  line-height: 1.5em;
 }
 
 .restaurant-item .restaurant-item__header .restaurant-item__header__rating {
@@ -290,106 +279,26 @@ main {
   margin-left: 10px;
 }
 
-.restaurant-item .restaurant-item__header .restaurant-item__header__poster {
-  width: 100%;
-  min-height: 280px;
+.restaurant-item .restaurant-item__content {
+  padding: 16px;
+}
+
+.restaurant-item .restaurant-item__content h3 {
+  margin: 0 0 10px 0;
 }
 
 .restaurant-item .restaurant-item__content h3 a {
   color: #db0000;
   text-decoration: none;
-} */
+}
 
-   
-  /*
-    restaurants
-  */
-   
-  .restaurant {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin: 32px 0;
-  }
-   
-   
-  /*
-    restaurant Item
-  */
-   
-  .restaurant-item {
-    width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-   
-  .restaurant-item__header {
-    position: relative;
-  }
-   
-  .restaurant-item .restaurant-item__header .restaurant-item__header__poster {
-    width: 100%;
-  }
-   
-  .restaurant-item .restaurant-item__header .restaurant-item__header__rating {
-    position: absolute;
-    padding: 8px;
-    bottom: 20px;
-    left: 0;
-    display: inline-block;
-    background-color: black;
-    color: white;
-  }
-   
-  .restaurant-item .restaurant-item__header .restaurant-item__header__rating .restaurant-item__header__rating__score {
-    margin-left: 10px;
-  }
-   
-  .restaurant-item .restaurant-item__content {
-    padding: 16px;
-  }
-   
-  .restaurant-item .restaurant-item__content h3 {
-    margin: 0 0 10px 0;
-  }
-   
-  .restaurant-item .restaurant-item__content h3 a {
-    color: #db0000;
-    text-decoration: none;
-  }
-   
-  .restaurant-item .restaurant-item__content p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4; /* number of lines to show */
-    -webkit-box-orient: vertical;
-  }
-   
-   
-  /*
-    restaurant
-  */
-   
-  .restaurant {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 800px;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px 16px;
-  }
-   
-  .restaurant .restaurant__poster {
-    width: 100%;
-    max-width: 400px;
-  }
-   
-  .restaurant .restaurant__info h4 {
-    margin: 8px 0;
-  }
-   
+.restaurant-item .restaurant-item__content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
 
 /*
  * footer
@@ -424,4 +333,3 @@ button {
 .skip-link:focus {
   top: 0;
 }
-
