@@ -21,14 +21,14 @@ const Detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const detail = await TheRestaurantDbSource.detailRestaurant(url.id);
     const details = detail.restaurant;
-    // const { foods, drinks } = detail.restaurant.menus;
-    // const { customerReviews } = detail.restaurant;
+    const { foods, drinks } = detail.restaurant.menus;
+    const { customerReviews } = detail.restaurant;
 
     const restaurantContainer = document.querySelector('#restaurant');
     restaurantContainer.innerHTML += createRestaurantDetailTemplate(detail);
-    // restaurantContainer.innerHTML += createDetailFood(foods);
-    // restaurantContainer.innerHTML += createDetailDrink(drinks);
-    // restaurantContainer.innerHTML += createDetailReview(customerReviews);
+    restaurantContainer.innerHTML += createDetailFood(foods);
+    restaurantContainer.innerHTML += createDetailDrink(drinks);
+    restaurantContainer.innerHTML += createDetailReview(customerReviews);
 
     const likeButtonContainer = document.querySelector('#likeButtonContainer');
     likeButtonContainer.innerHTML = createLikeButtonTemplate();

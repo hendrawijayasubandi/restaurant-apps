@@ -3,14 +3,14 @@ import CONFIG from '../../globals/config';
 const createRestaurantDetailTemplate = (restaurant) => `
 
   <div class="restaurant__info">
-    <h2 class="restaurant__title">${restaurant.name}</h2>
-    <img class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" />
+    <h2 class="restaurant__title">${restaurant.restaurant.name}</h2>
+    <img class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL + restaurant.restaurant.pictureId}" alt="${restaurant.restaurant.name}" />
   </div>
   <div class="restaurant__info">
   <h3>Information</h3>
   <div class="restaurant__overview">
     <h3>Overview</h3>
-    <p>${restaurant.description}</p>
+    <p>${restaurant.restaurant.description}</p>
   </div>
   </div>
 `;
