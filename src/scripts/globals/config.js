@@ -5,7 +5,7 @@ const CONFIG = {
   CACHE_NAME: new Date().toISOString(),
   DATABASE_NAME: 'chinese-food-database',
   DATABASE_VERSION: 1,
-  OBJECT_STORE_NAME: 'restaurant'
+  OBJECT_STORE_NAME: 'restaurant',
 };
 
 export default CONFIG;

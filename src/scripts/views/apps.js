@@ -27,6 +27,12 @@ class App {
     this._content.innerHTML = await page.render();
     await page.afterRender();
   }
+
+  const skipLinkElem = document.querySelector('.skip-link');    
+    skipLinkElem.addEventListener('click', (event) => {      
+    event.preventDefault();
+    document.querySelector('#maincontent').focus();
+});
 }
 
 export default App;
