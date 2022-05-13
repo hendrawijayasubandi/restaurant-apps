@@ -1,13 +1,17 @@
 import CONFIG from '../../globals/config';
 
 const createRestaurantDetailTemplate = (restaurant) => `
-  <h2 class="restaurant__title">${restaurant.name}</h2>
-  <img class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" />
+
+  <div class="restaurant__info">
+    <h2 class="restaurant__title">${restaurant.name}</h2>
+    <img class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" />
+  </div>
   <div class="restaurant__info">
   <h3>Information</h3>
   <div class="restaurant__overview">
     <h3>Overview</h3>
     <p>${restaurant.description}</p>
+  </div>
   </div>
 `;
 
@@ -27,6 +31,49 @@ const createRestaurantItemTemplate = (restaurant) => `
   </div>
   `;
 
+const createDetailFood = (foods) => {
+  let text = `
+    <div class="restaurant__info" tabindex="0">
+      <h4>Makanan</h4>
+  `;
+  foods.forEach((food) => {
+    text += `<p>${food.name}</p>`;
+  });
+  text += `
+  </div>`;
+  return text;
+};
+
+const createDetailDrink = (drinks) => {
+  let text = `
+    <div class="restaurant__info" tabindex="0">
+      <h4>Minuman</h4>
+  `;
+  drinks.forEach((drink) => {
+    text += `<p>${drink.name}</p>`;
+  });
+  text += `
+  </div>`;
+  return text;
+};
+
+const createDetailReview = (customerReviews) => {
+  let text = `
+    <div class="restaurant__info" tabindex="0">
+      <h4>Review</h4>
+  `;
+  customerReviews.forEach((review) => {
+    text += `<p>nama : ${review.name}</p>
+             <p>review : ${review.review}</p>
+             <p>Date : ${review.date}</p>
+             <br>
+    `;
+  });
+  text += `
+  </div>`;
+  return text;
+};
+
 const createLikeButtonTemplate = () => `
   <button aria-label="like this restaurant" id="likeButton" class="like">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
@@ -42,6 +89,9 @@ const createLikedButtonTemplate = () => `
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
+  createDetailFood,
+  createDetailDrink,
+  createDetailReview,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
 };
