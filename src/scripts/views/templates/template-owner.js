@@ -8,10 +8,18 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </div>
   <div class="restaurant__info">
   <h3>Information</h3>
-  <div class="restaurant__overview">
-    <h3>Overview</h3>
-    <p>${restaurant.restaurant.description}</p>
+    <div class="restaurant__overview">
+      <h3>Overview</h3>
+      <p>${restaurant.restaurant.description}</p>
+    </div>
   </div>
+  <div class="restaurant__info">
+    <h4>Alamat</h4>
+    <p>${restaurant.restaurant.address}</p>
+    <h4>Kota</h4>
+    <p>${restaurant.restaurant.city}</p>
+    <h4>Rating</h4>
+    <p>${restaurant.restaurant.rating} ⭐️</p>
   </div>
 `;
 
