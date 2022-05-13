@@ -5,7 +5,7 @@ import Like from '../views/pages/like';
 const routes = {
   '/': NowRestaurant, // default page
   '/now-restaurant': NowRestaurant,
-  '/favorite' : Like,
+  '/favorite': Like,
   '/detail/:id': Detail,
 };
 
