@@ -1,5 +1,5 @@
 import FavoriteRestaurantIdb from '../../data/restaurantapps-idb';
-import { createRestaurantItemTemplate } from '../templates/template-creator';
+import { createRestaurantItemTemplate } from '../templates/template-owner';
 
 const Like = {
   async render() {
