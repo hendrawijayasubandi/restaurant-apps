@@ -15,7 +15,7 @@ const Like = {
 
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
-    const restaurantsContainer = document.querySelector('#restaurants');
+    const restaurantsContainer = document.querySelector('#restaurant');
     restaurants.forEach((restaurant) => {
       restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
     });
