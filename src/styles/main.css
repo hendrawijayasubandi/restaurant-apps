@@ -18,7 +18,7 @@ html {
 body {
   /* font-family: "Oswald", sans-serif; */
   font-family: "Noto Serif SC", serif;
-  font-size: 12px;
+  font-size: 14px;
   color: black;
 }
 
@@ -286,6 +286,7 @@ main {
 .restaurant-item .restaurant-item__content h3 a {
   color: #db0000;
   text-decoration: none;
+  padding: 25px 0;
 }
 
 .restaurant-item .restaurant-item__content p {

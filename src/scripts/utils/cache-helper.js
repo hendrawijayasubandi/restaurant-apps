@@ -9,7 +9,7 @@ const CacheHelper = {
   async deleteOldCache() {
     const cacheNames = await caches.keys();
     cacheNames
-      .filter((name) => name !== 'RestaurantApps-V1')
+      .filter((name) => name !== CONFIG.CACHE_NAME)
       .map((filteredName) => caches.delete(filteredName));
   },
 
@@ -24,7 +24,7 @@ const CacheHelper = {
   },
 
   async _openCache() {
-    return caches.open('RestaurantApps-V1');
+    return caches.open(CONFIG.CACHE_NAME);
   },
 
   async _fetchRequest(request) {
