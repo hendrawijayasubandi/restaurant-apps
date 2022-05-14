@@ -199,4 +199,30 @@ describe('Searching restaurants', () => {
         .toHaveBeenCalled();
     });
   });
+
+  describe('When no favorite restaurants could be found', () => {
+    it('should show the empty message', (done) => {
+      document.getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          expect(document.querySelectorAll('.restaurants__not__found').length)
+            .toEqual(1);
+          done();
+        });
+
+      favoriteRestaurants.searchRestaurants.withArgs('food a').and.returnValues([]);
+
+      searchRestaurants('food a');
+    });
+
+    it('should not show any restaurant', (done) => {
+      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+        expect(document.querySelectorAll('.restaurant').length).toEqual(0);
+        done();
+      });
+
+      favoriteRestaurants.searchRestaurants.withArgs('food a').and.returnValues([]);
+
+      searchRestaurants('food a');
+    });
+  });
 });
