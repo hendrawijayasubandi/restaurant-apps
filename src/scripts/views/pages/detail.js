@@ -7,7 +7,7 @@ import {
   createDetailDrink,
   createDetailReview,
 } from '../templates/template-owner';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 
 const Detail = {
   async render() {
@@ -33,7 +33,7 @@ const Detail = {
     const likeButtonContainer = document.querySelector('#likeButtonContainer');
     likeButtonContainer.innerHTML = createLikeButtonTemplate();
 
-    LikeButtonInitiator.init({
+    LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       restaurant: {
         id: details.id,
