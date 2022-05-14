@@ -35,16 +35,16 @@ describe('Searching restaurants', () => {
       });
     
       it('should be able to capture the query typed by the user', () => {
-        searchRestaurants('film a');
+        searchRestaurants('food a');
 
-    expect(presenter.latestQuery).toEqual('film a');
+    expect(presenter.latestQuery).toEqual('food a');
   });
 
   it('should ask the model to search for restaurant', () => {
-    searchRestaurants('film a');
+    searchRestaurants('food a');
 
     expect(FavoriteRestaurantIdb.searchRestaurants)
-      .toHaveBeenCalledWith('film a');
+      .toHaveBeenCalledWith('food a');
   });
 
   it('should show the found restaurant', () => {

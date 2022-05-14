@@ -30,8 +30,8 @@ const FavoriteRestaurantArray = {
   },
 
   deleteRestaurant(id) {
-    // cara boros menghapus film dengan meng-copy film yang ada
-    // kecuali film dengan id == id
+    // cara boros menghapus food dengan meng-copy food yang ada
+    // kecuali food dengan id == id
     favoriteRestaurants = favoriteRestaurants.filter((restaurant) => restaurant.id !== id);
   },
 };

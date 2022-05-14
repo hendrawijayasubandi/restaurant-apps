@@ -40,10 +40,10 @@ describe('Unliking A Restaurant', () => {
   it('should not throw error if the unliked restaurant is not in the list', async () => {
     
 
-    // hapus dulu film dari daftar film yang disukai
+    // hapus dulu food dari daftar food yang disukai
     await FavoriteRestaurantIdb.deleteRestaurant(1);
 
-    // kemudian, simulasikan pengguna menekan widget batal menyukai film
+    // kemudian, simulasikan pengguna menekan widget batal menyukai food
     document.querySelector('[aria-label="unlike this restaurant"]').dispatchEvent(new Event('click'));
 
     expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([]);
@@ -96,10 +96,10 @@ describe('Unliking A Restaurant', () => {
   it('should not throw error if the unliked restaurant is not in the list', async () => {
     
 
-    // hapus dulu film dari daftar film yang disukai
+    // hapus dulu food dari daftar food yang disukai
     await FavoriteRestaurantIdb.deleteRestaurant(1);
 
-    // kemudian, simulasikan pengguna menekan widget batal menyukai film
+    // kemudian, simulasikan pengguna menekan widget batal menyukai food
     document.querySelector('[aria-label="unlike this restaurant"]').dispatchEvent(new Event('click'));
 
     expect(await FavoriteRestaurantIdb.getAllRestaurants()).toEqual([]);
