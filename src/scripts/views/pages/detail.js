@@ -8,6 +8,7 @@ import {
   createDetailReview,
 } from '../templates/template-owner';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
+import FavoriteRestaurantIdb from '../../data/restaurantapps-idb';
 
 const Detail = {
   async render() {
@@ -35,6 +36,7 @@ const Detail = {
 
     LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: {
         id: details.id,
         name: details.name,
