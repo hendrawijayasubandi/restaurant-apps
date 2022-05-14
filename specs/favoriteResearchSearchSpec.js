@@ -81,4 +81,39 @@ describe('Searching restaurants', () => {
     expect(document.querySelectorAll('.restaurant__title').item(0).textContent)
       .toEqual('-');
   });
+
+  it('should show the restaurants found by Favorite Restaurants', (done) => {
+    document.getElementById('restaurant-search-container')
+      .addEventListener('restaurants:searched:updated', () => {
+        expect(document.querySelectorAll('.restaurant').length).toEqual(3);
+        done();
+      });
+
+    FavoriteRestaurantIdb.searchRestaurants.withArgs('food a').and.returnValues([
+      { id: 111, title: 'food abc' },
+      { id: 222, title: 'ada juga food abcde' },
+      { id: 333, title: 'ini juga boleh food a' },
+    ]);
+
+    searchRestaurants('food a');
+  });
+
+  it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
+    document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+      const restaurantTitles = document.querySelectorAll('.restaurant__title');
+      expect(restaurantTitles.item(0).textContent).toEqual('food abc');
+      expect(restaurantTitles.item(1).textContent).toEqual('ada juga food abcde');
+      expect(restaurantTitles.item(2).textContent).toEqual('ini juga boleh food a');
+
+      done();
+    });
+
+    FavoriteRestaurantIdb.searchRestaurants.withArgs('food a').and.returnValues([
+      { id: 111, title: 'food abc' },
+      { id: 222, title: 'ada juga food abcde' },
+      { id: 333, title: 'ini juga boleh food a' },
+    ]);
+
+    searchRestaurants('food a');
+  });
 });
