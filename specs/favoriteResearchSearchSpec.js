@@ -63,89 +63,11 @@ describe('Searching restaurants', () => {
           .toEqual(2);
       });
 
-      it('should show the title of the found restaurants', () => {
-        presenter._showFoundRestaurants([{
-          id: 1,
-          title: 'Satu',
-        }]);
-        expect(document.querySelectorAll('.restaurant__title')
-          .item(0).textContent)
-          .toEqual('Satu');
-      });
+      it('should show - when the restaurant returned does not contain a title', (done) => {
+        document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
+          const restaurantTitles = document.querySelectorAll('.restaurant__title');
+          expect(restaurantTitles.item(0).textContent).toEqual('-');
 
-      it('should show the title of the found restaurants', () => {
-        presenter._showFoundRestaurants([{
-          id: 1,
-          title: 'Satu',
-        }]);
-        expect(document.querySelectorAll('.restaurant__title')
-          .item(0).textContent)
-          .toEqual('Satu');
-  
-        presenter._showFoundRestaurants(
-          [{
-            id: 1,
-            title: 'Satu',
-          }, {
-            id: 2,
-            title: 'Dua',
-          }],
-        );
-
-        const restaurantTitles = document.querySelectorAll('.restaurant__title');
-        expect(restaurantTitles.item(0).textContent)
-          .toEqual('Satu');
-        expect(restaurantTitles.item(1).textContent)
-          .toEqual('Dua');
-      });
-
-      it('should show - for found restaurant without title', () => {
-        presenter._showFoundRestaurants([{ id: 1 }]);
-
-        expect(document.querySelectorAll('.restaurant__title')
-        .item(0).textContent)
-        .toEqual('-');
-    });
-
-    it('should show the restaurants found by Favorite Restaurants', (done) => {
-        document.getElementById('restaurant-search-container')
-          .addEventListener('restaurants:searched:updated', () => {
-            expect(document.querySelectorAll('.restaurant').length)
-              .toEqual(3);
-            done();
-          });
-  
-        favoriteRestaurants.searchRestaurants.withArgs('food a')
-          .and
-          .returnValues([
-            {
-              id: 111,
-              title: 'food abc',
-            },
-            {
-              id: 222,
-              title: 'ada juga food abcde',
-            },
-            {
-              id: 333,
-              title: 'ini juga boleh food a',
-            },
-          ]);
-  
-        searchRestaurants('food a');
-      });
-
-      it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
-        document.getElementById('restaurant-search-container')
-          .addEventListener('restaurants:searched:updated', () => {
-            const restaurantTitles = document.querySelectorAll('.restaurant__title');
-            expect(restaurantTitles.item(0).textContent)
-              .toEqual('food abc');
-            expect(restaurantTitles.item(1).textContent)
-              .toEqual('ada juga food abcde');
-            expect(restaurantTitles.item(2).textContent)
-              .toEqual('ini juga boleh food a');
-  
             done();
           });
   
@@ -221,9 +143,9 @@ describe('Searching restaurants', () => {
           done();
         });
 
-        favoriteRestaurants.searchRestaurants.withArgs('film a')
-            .and
-            .returnValues([]);
+        favoriteRestaurants.searchRestaurants.withArgs('food a').and.returnValues([
+            { id: 444 },
+          ]);
 
       searchRestaurants('food a');
     });
