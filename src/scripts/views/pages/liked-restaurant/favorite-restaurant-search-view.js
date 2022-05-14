@@ -2,23 +2,14 @@ import { createRestaurantItemTemplate } from '../../templates/template-creator';
 
 class FavoriteRestaurantSearchView {
     getTemplate() {
-      return `
-      <div id="movie-search-container">
-      <input id="query" type="text">
-      <div class="movie-result-container">
-          <ul class="restaurants">
-          </ul>
-      </div>
-  </div>
-  `;
-}
-
-    getFavoriteMovieTemplate() {
+      
     return `
     <div class="content">
-        <h2 class="content__heading">Your Liked Movie</h2>
-        <div id="restaurants" class="restaurants">
-        </div>
+        <input id="query" type="text">
+        <h2 class="content__heading">Your Liked Restaurant</h2>
+            <div id="restaurants" class="restaurants">
+
+            </div>
     </div>
     `;
     }
@@ -31,33 +22,24 @@ class FavoriteRestaurantSearchView {
     }
   
     showRestaurants(restaurant) {
-      let html;
-      if (restaurant.length > 0) {
-        html = restaurant.reduce(
-          (carry, restaurant) => carry.concat(`<li class="restaurant"><span class="restaurant__title">${restaurant.title || '-'}</span></li>`),
-          '',
-        );
-      } else {
-        html = '<div class="restaurant__not__found">Food tidak ditemukan</div>';
-      }
-  
-      document.querySelector('.restaurant').innerHTML = html;
-  
-      document.getElementById('restaurant-search-container')
-        .dispatchEvent(new Event('restaurant:searched:updated'));
+        this.showFavoriteRestaurants(restaurants);
     }
 
     showFavoriteRestaurants(restaurants = []) {
         let html;
         if (restaurants.length) {
-          html = restaurants.reduce((carry, movie) => carry.concat(createMovieItemTemplate(movie)), '');
+          html = restaurants.reduce((carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)), '');
         } else {
-          html = '<div class="movie-item__not__found"></div>';
+            html = this._getEmptyRestaurantTemplate();
         }
     
         document.getElementById('restaurants').innerHTML = html;
     
         document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'));
+      }
+
+      _getEmptyRestaurantTemplate() {
+        return '<div class="restaurant-item__not__found restaurants__not__found">Tidak ada food untuk ditampilkan</div>';
       }
   }
   
