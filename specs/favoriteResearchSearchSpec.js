@@ -1,10 +1,13 @@
 import FavoriteRestaurantSearchPresenter
   from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-search-presenter';
 import FavoriteRestaurantIdb from '../src/scripts/data/restaurantapps-idb';
+import FavoriteRestaurantSearchView
+  from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-search-view';
 
 describe('Searching restaurants', () => {
     let presenter;
     let favoriteRestaurants;
+    let view;
 
     const searchRestaurants = (query) => {
       const queryElement = document.getElementById('query');
@@ -13,21 +16,15 @@ describe('Searching restaurants', () => {
     };
   
     const setRestaurantSearchContainer = () => {
-    document.body.innerHTML = `
-        <div id="restaurant-search-container">
-            <input id="query" type="text">
-            <div class="restaurant-result-container">
-                <ul class="restaurants">
-                </ul>
-            </div>
-        </div>
-        `;
+        view = new FavoriteRestaurantSearchView();
+        document.body.innerHTML = view.getTemplate();
   };
 
   const constructPresenter = () => {
     favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantIdb);
     presenter = new FavoriteRestaurantSearchPresenter({
         favoriteRestaurants,
+        view,
     });
 
     beforeEach(() => {
@@ -210,17 +207,23 @@ describe('Searching restaurants', () => {
         });
 
       favoriteRestaurants.searchRestaurants.withArgs('food a').and.returnValues([]);
+        .and
+        .returnValues([]);
 
       searchRestaurants('food a');
     });
 
     it('should not show any restaurant', (done) => {
-      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
-        expect(document.querySelectorAll('.restaurant').length).toEqual(0);
-        done();
-      });
+      document.getElementById('restaurant-search-container')
+        .addEventListener('restaurants:searched:updated', () => {
+          expect(document.querySelectorAll('.restaurant').length)
+            .toEqual(0);
+          done();
+        });
 
-      favoriteRestaurants.searchRestaurants.withArgs('food a').and.returnValues([]);
+        favoriteRestaurants.searchRestaurants.withArgs('film a')
+            .and
+            .returnValues([]);
 
       searchRestaurants('food a');
     });
