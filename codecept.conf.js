@@ -23,4 +23,12 @@ exports.config = {
   bootstrap: null,
   mocha: {},
   name: 'restaurant-apps'
-}
+  plugins: {
+    retryFailedStep: {
+      enabled: true,
+    },
+    screenshotOnFail: {
+      enabled: true,
+    },
+  },
+};
