@@ -3,7 +3,15 @@ import FavoriteRestaurantSearchPresenter
 import FavoriteRestaurantIdb from '../src/scripts/data/restaurantapps-idb';
 
 describe('Searching restaurants', () => {
-  beforeEach(() => {
+    let presenter;
+
+    const searchRestaurants = (query) => {
+      const queryElement = document.getElementById('query');
+      queryElement.value = query;
+      queryElement.dispatchEvent(new Event('change'));
+    };
+  
+    const setRestaurantSearchContainer = () => {
     document.body.innerHTML = `
         <div id="restaurant-search-container">
             <input id="query" type="text">
@@ -13,30 +21,64 @@ describe('Searching restaurants', () => {
             </div>
         </div>
         `;
-  });
+  };
 
-  it('should be able to capture the query typed by the user', () => {
+  const constructPresenter = () => {
     spyOn(FavoriteRestaurantIdb, 'searchRestaurants');
-    const presenter = new FavoriteRestaurantSearchPresenter({
+    presenter = new FavoriteRestaurantSearchPresenter({
       favoriteRestaurants: FavoriteRestaurantIdb,
     });
 
-    const queryElement = document.getElementById('query');
-    queryElement.value = 'film a';
-    queryElement.dispatchEvent(new Event('change'));
+    beforeEach(() => {
+        setRestaurantSearchContainer();
+        constructPresenter();
+      });
+    
+      it('should be able to capture the query typed by the user', () => {
+        searchRestaurants('film a');
 
     expect(presenter.latestQuery).toEqual('film a');
   });
 
-  it('should ask the model to search for liked restaurants', () => {
-    spyOn(FavoriteRestaurantIdb, 'searchRestaurants');
-    const presenter = new FavoriteRestaurantSearchPresenter({ favoriteRestaurants: FavoriteRestaurantIdb });
-
-    const queryElement = document.getElementById('query');
-    queryElement.value = 'film a';
-    queryElement.dispatchEvent(new Event('change'));
+  it('should ask the model to search for restaurant', () => {
+    searchRestaurants('film a');
 
     expect(FavoriteRestaurantIdb.searchRestaurants)
       .toHaveBeenCalledWith('film a');
+  });
+
+  it('should show the found restaurant', () => {
+    presenter._showFoundRestaurants([{ id: 1 }]);
+    expect(document.querySelectorAll('.restaurant').length).toEqual(1);
+
+    presenter._showFoundRestaurants([{ id: 1, title: 'Satu' }, { id: 2, title: 'Dua' }]);
+    expect(document.querySelectorAll('.restaurant').length).toEqual(2);
+  });
+
+  it('should show the title of the found restaurant', () => {
+    presenter._showFoundRestaurants([{ id: 1, title: 'Satu' }]);
+    expect(document.querySelectorAll('.restaurant__title').item(0).textContent)
+      .toEqual('Satu');
+  });
+
+  it('should show the title of the found restaurant', () => {
+    presenter._showFoundRestaurants([{ id: 1, title: 'Satu' }]);
+    expect(document.querySelectorAll('.restaurant__title').item(0).textContent)
+      .toEqual('Satu');
+
+    presenter._showFoundRestaurants(
+      [{ id: 1, title: 'Satu' }, { id: 2, title: 'Dua' }],
+    );
+
+    const restaurantTitles = document.querySelectorAll('.restaurant__title');
+    expect(restaurantTitles.item(0).textContent).toEqual('Satu');
+    expect(restaurantTitles.item(1).textContent).toEqual('Dua');
+  });
+
+  it('should show - for found restaurant without title', () => {
+    presenter._showFoundRestaurants([{ id: 1 }]);
+
+    expect(document.querySelectorAll('.restaurant__title').item(0).textContent)
+      .toEqual('-');
   });
 });
